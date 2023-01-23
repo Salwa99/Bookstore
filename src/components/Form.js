@@ -5,10 +5,10 @@ const Form = () => (
     <form>
       <input type="text" name="title" id="title" placeholder="Add Book Title" />
       <select name="author" id="author">
-        <option value="shakespear">Shakespear</option>
-        <option value="arthur-c-d">Arthur Conan Doyle</option>
+        <option value="shakespear">Arthur Schopenhauer</option>
+        <option value="arthur-c-d">Charles Dickens</option>
         <option value="jk-rowling">JK Rowling</option>
-        <option value="jane-austin">Jane Austen</option>
+        <option value="jane-austin">Mary Shelley</option>
       </select>
       <button type="button">Add Book</button>
     </form>
