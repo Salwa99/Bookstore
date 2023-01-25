@@ -175,7 +175,6 @@ Give a ⭐️ if you like this project!
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ]  Use Redux in React components.
 - [ ]  Connect to an API.
 - [ ]  Styling the App.
 
