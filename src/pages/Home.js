@@ -1,11 +1,15 @@
 import React from 'react';
-import Book from '../components/Book';
+import BookList from '../components/BookList';
 import Form from '../components/Form';
 
 const Home = () => (
   <>
-    <Book title=" Oliver Twist" author="Charles Dickens" />
-    <Form />
+    <div>
+      <BookList />
+    </div>
+    <div>
+      <Form />
+    </div>
   </>
 );
 

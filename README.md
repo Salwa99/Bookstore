@@ -10,6 +10,7 @@
 - [Book store 📖 ](#book-store--)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
+    - [Key Features ](#key-features-)
   - [🚀 Live Demo ](#-live-demo-)
   - [💻 Getting Started ](#-getting-started-)
     - [Prerequisites](#prerequisites)
@@ -32,7 +33,7 @@
 # Book store 📖 <a name="about-project"></a>
 
 
-<b>React Bookstore</b> is a website for Mathematics lovers. The website is built with React JS.
+<b>React Bookstore</b> is a react books app
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -46,6 +47,15 @@
   </ul>
 </details>
 
+### Key Features <a name="key-features"></a>
+
+<details>
+ Some Key feature of this project 
+  <ul>
+    <li>User can read book</li>
+    <li>User can make CRUD operatopn with the book list</li>
+  </ul>
+</details>
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
@@ -175,7 +185,6 @@ Give a ⭐️ if you like this project!
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ]  Use Redux in React components.
 - [ ]  Connect to an API.
 - [ ]  Styling the App.
 
