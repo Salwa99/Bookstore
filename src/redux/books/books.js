@@ -1,43 +1,46 @@
-import { v4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 
-const ADD = 'bookstore/books/ADD';
-const REMOVE = 'bookstore/books/REMOVE';
+const URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/X13ZQcuMuB0P1DKEDtUr/books';
 
 // Actions
-const addBook = (book) => ({
-  type: ADD,
-  book,
-});
-
-const removeBook = (id) => ({
-  type: REMOVE,
-  id,
-});
+const LOAD = 'bookstore/books/LOAD';
 
 // Reducer
-const bookReducer = (state = [
-  {
-    id: v4(), title: 'Oliver Twist', author: 'Charles Dikens', genre: 'sc-fi',
-  },
-  {
-    id: v4(), title: 'The World as Will and Representation', author: 'Arthur Schopenhauer', genre: 'philosophy',
-  },
-  {
-    id: v4(), title: 'Thus Spoke Zarathustra', author: 'Friedrich Nietzsche', genre: 'philosophy',
-  },
-  {
-    id: v4(), title: 'Les Misérables', author: 'Victor Hugo', genre: 'historical fiction',
-  },
-], action = {}) => {
+export default function reducer(state = {}, action) {
   switch (action.type) {
-    case ADD:
-      return [...state, action.book];
-    case REMOVE:
-      return [...state.filter((book) => book.id !== action.id)];
-    default:
-      return state;
+    case (LOAD):
+      return action.state;
+    default: return state;
   }
+}
+
+// Action Creators
+export const loadBooks = () => async (dispatch) => {
+  const res = await fetch(URL);
+  const state = await res.json();
+  dispatch({ type: LOAD, state });
 };
 
-export { addBook, removeBook };
-export default bookReducer;
+export const createBook = (book) => async (dispatch) => {
+  await fetch(URL, {
+    method: 'POST',
+    body: new URLSearchParams({
+      item_id: uuidv4(),
+      author: book.author,
+      title: book.title,
+      category: book.category,
+    }),
+  });
+  const res = await fetch(URL);
+  const state = await res.json();
+  dispatch({ type: LOAD, state });
+};
+
+export const removeBook = (bookId) => async (dispatch) => {
+  await fetch(`${URL}/${bookId}`, {
+    method: 'DELETE',
+  });
+  const res = await fetch(URL);
+  const state = await res.json();
+  dispatch({ type: LOAD, state });
+};
