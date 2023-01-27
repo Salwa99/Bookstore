@@ -1,51 +1,54 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { v4 } from 'uuid';
-import { addBook } from '../redux/books/books';
+import { createBook } from '../redux/books/books';
 
-const Form = () => {
-  const [title, setTitle] = useState('');
-  const [author, setAuthor] = useState('');
-
+function Form() {
   const dispatch = useDispatch();
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const newBook = {
-      id: v4(),
-      title,
-      author,
-    };
+  const [title, setTitle] = useState('');
+  const [author, setAuthor] = useState('');
+  const [category, setCategory] = useState('Fiction');
 
-    dispatch(addBook(newBook));
-    setTitle('');
-    setAuthor('');
-    // setGenre('');
+  const updateTitle = (e) => setTitle(e.target.value);
+  const updateAuthor = (e) => setAuthor(e.target.value);
+  const updateCategory = (e) => setCategory(e.target.value);
+
+  const addNewBook = (e) => {
+    e.preventDefault();
+    if (title && author && category) {
+      dispatch(createBook({
+        title,
+        author,
+        category,
+      }));
+      setTitle('');
+      setAuthor('');
+      setCategory('');
+    }
   };
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Book's Title"
-          id="title"
-          name="title"
-          onChange={(event) => setTitle(event.target.value)}
-          value={title}
-        />
-        <input
-          type="text"
-          placeholder="Author's Name"
-          name="author"
-          id="author"
-          onChange={(event) => setAuthor(event.target.value)}
-          value={author}
-        />
-        <button type="submit">Add Book</button>
+      <h2>ADD NEW BOOK</h2>
+      <form onSubmit={addNewBook}>
+        <input type="text" placeholder="Book title" onChange={updateTitle} value={title} />
+        <input type="text" placeholder="Add author" onChange={updateAuthor} value={author} />
+        <select onChange={updateCategory} value={category}>
+          <option value="Fiction">Fiction</option>
+          <option value="Horror">Horror</option>
+          <option value="History">History</option>
+          <option value="Philosophy">Philosophy</option>
+          <option value="Computer-Science">Computer Science</option>
+          <option value="Astrology">Astrology</option>
+          <option value="Mathematics">Mathematics</option>
+          <option value="Biology">Biology</option>
+          <option value="Physics">Physics</option>
+          <option value="Biography">Biography</option>
+        </select>
+        <button type="submit">ADD BOOK</button>
       </form>
     </div>
   );
-};
+}
 
 export default Form;
