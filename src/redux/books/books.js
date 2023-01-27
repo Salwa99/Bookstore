@@ -6,6 +6,7 @@ const URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstor
 // Actions
 export const loadBooks = createAsyncThunk('bookstore/books/LOAD', async () => {
   const res = await fetch(URL);
+  // eslint-disable-next-line
   return await res.json();
 });
 
@@ -20,6 +21,7 @@ export const createBook = createAsyncThunk('bookstore/books/CREATE', async (book
     }),
   });
   const res = await fetch(URL);
+  // eslint-disable-next-line
   return await res.json();
 });
 
@@ -28,6 +30,7 @@ export const removeBook = createAsyncThunk('bookstore/books/REMOVE', async (book
     method: 'DELETE',
   });
   const res = await fetch(URL);
+  // eslint-disable-next-line
   return await res.json();
 });
 
