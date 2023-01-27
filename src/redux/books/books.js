@@ -1,27 +1,15 @@
 import { v4 as uuidv4 } from 'uuid';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 
 const URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/X13ZQcuMuB0P1DKEDtUr/books';
 
 // Actions
-const LOAD = 'bookstore/books/LOAD';
-
-// Reducer
-export default function reducer(state = {}, action) {
-  switch (action.type) {
-    case (LOAD):
-      return action.state;
-    default: return state;
-  }
-}
-
-// Action Creators
-export const loadBooks = () => async (dispatch) => {
+export const loadBooks = createAsyncThunk('bookstore/books/LOAD', async () => {
   const res = await fetch(URL);
-  const state = await res.json();
-  dispatch({ type: LOAD, state });
-};
+  return await res.json();
+});
 
-export const createBook = (book) => async (dispatch) => {
+export const createBook = createAsyncThunk('bookstore/books/CREATE', async (book) => {
   await fetch(URL, {
     method: 'POST',
     body: new URLSearchParams({
@@ -32,15 +20,24 @@ export const createBook = (book) => async (dispatch) => {
     }),
   });
   const res = await fetch(URL);
-  const state = await res.json();
-  dispatch({ type: LOAD, state });
-};
+  return await res.json();
+});
 
-export const removeBook = (bookId) => async (dispatch) => {
+export const removeBook = createAsyncThunk('bookstore/books/REMOVE', async (bookId) => {
   await fetch(`${URL}/${bookId}`, {
     method: 'DELETE',
   });
   const res = await fetch(URL);
-  const state = await res.json();
-  dispatch({ type: LOAD, state });
-};
+  return await res.json();
+});
+
+// Reducer
+export default function reducer(state = {}, action) {
+  switch (action.type) {
+    case loadBooks.fulfilled.type:
+    case createBook.fulfilled.type:
+    case removeBook.fulfilled.type:
+      return action.payload;
+    default: return state;
+  }
+}
