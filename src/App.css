@@ -89,7 +89,7 @@ button {
 .buttons button {
   font-size: 0.9rem;
   color: rgb(94, 197, 245);
-
+}
 
 .buttons button {
   background: #fff;
@@ -228,4 +228,5 @@ form input[type=text]:focus {
     1px 1px 0  rgb(37, 144, 214),
     1px -1px 0 rgb(37, 144, 214),
     -2px -1px 0 rgb(37, 144, 214);
+}
 }
