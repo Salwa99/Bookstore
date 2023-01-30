@@ -4,12 +4,15 @@ import Form from '../components/Form';
 
 const Home = () => (
   <>
-    <div>
-      <BookList />
+    <div className="main">
+      <div>
+        <BookList />
     </div>
     <div>
-      <Form />
+        <Form />
     </div>
+    </div>
+    
   </>
 );
 

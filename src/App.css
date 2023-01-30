@@ -2,7 +2,17 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+  font-family: sans-serif
+}
+
+body {
+  background-color: rgb(236, 236, 236);
+  padding: 5%;
+}
+
+.main {
+  padding: 3%;
+  background: rgb(255, 255, 255);
 }
 
 .navbar {
@@ -10,10 +20,12 @@
   align-items: center;
   justify-content: space-between;
   padding: 1% 3%;
+  padding-bottom: 5%;
   width: 100%;
   height: 100%;
   border-bottom: 1px solid rgb(211, 205, 205);
   cursor: pointer;
+  background: rgb(255, 255, 255);
 }
 
 .navbar .logo-links,
@@ -23,16 +35,10 @@ ul {
   align-items: center;
 }
 
-ul li a {
+a {
+  color: #313030;
   text-decoration: none;
-}
-
-.link1 a {
-  color: rgb(44, 43, 43);
-}
-
-.link2 a {
-  color: rgb(139, 136, 136);
+  cursor: pointer;
 }
 
 .avatar {
@@ -55,14 +61,17 @@ ul li a {
 .main-container {
   display: flex;
   justify-content: space-between;
-  margin: 5%;
+  margin: 2% 5%;
   padding: 3%;
-  border: 1px solid grey;
+  border: 2px solid rgb(218, 212, 212);
+  border-radius: 10px;
 }
 
-hr {
-  height: 100px;
-  border: 1px solid rgb(218, 212, 212);
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 .info1 {
@@ -112,6 +121,18 @@ button {
 .buttons button:first-child {
   border-left: none;
   padding-left: 0;
+}
+
+.main-circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 9%;
+}
+
+.main-circle h3, p{
+  font-size: 1.5rem;
+  font-weight: 300;
 }
 
 .box {
@@ -203,6 +224,8 @@ form input[type=text]:focus {
 }
 
 .construction-container {
+  background: rgb(255, 255, 255);
+  padding: 3%;
   display: flex;
   flex-direction: column;
   align-items: center;

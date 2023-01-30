@@ -8,7 +8,7 @@ const CircelProgress = ({ percentage }) => {
         <svg>
           <circle
             fill="none"
-            strokeWidth="8"
+            strokeWidth="3"
             stroke="#e8e8e8"
             strokeDasharray="220"
             strokeDashoffset="0"
@@ -18,7 +18,7 @@ const CircelProgress = ({ percentage }) => {
           />
           <circle
             fill="none"
-            strokeWidth="8"
+            strokeWidth="3"
             stroke="#0290ff"
             strokeDasharray="220"
             strokeDashoffset={calcValue}
