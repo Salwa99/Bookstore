@@ -28,8 +28,8 @@ function Form() {
   };
 
   return (
-    <div>
-      <h2>ADD NEW BOOK</h2>
+    <div className="main-container2">
+      <h2 className="add-new">ADD NEW BOOK</h2>
       <form onSubmit={addNewBook}>
         <input type="text" placeholder="Book title" onChange={updateTitle} value={title} />
         <input type="text" placeholder="Add author" onChange={updateAuthor} value={author} />
@@ -45,7 +45,7 @@ function Form() {
           <option value="Physics">Physics</option>
           <option value="Biography">Biography</option>
         </select>
-        <button type="submit">ADD BOOK</button>
+        <button type="submit" className="addBtn">ADD BOOK</button>
       </form>
     </div>
   );

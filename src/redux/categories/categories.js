@@ -15,7 +15,7 @@ const categoryReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         isChecking: true,
-        message: 'Under construction',
+        message: 'This web page is still under construction',
       };
     default:
       return state;
