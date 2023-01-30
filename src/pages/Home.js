@@ -7,12 +7,12 @@ const Home = () => (
     <div className="main">
       <div>
         <BookList />
-    </div>
-    <div>
+      </div>
+      <div>
         <Form />
+      </div>
     </div>
-    </div>
-    
+
   </>
 );
 
